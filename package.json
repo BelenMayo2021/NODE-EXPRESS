@@ -1,0 +1,24 @@
+{
+  "name": "conexion",
+  "version": "1.0.0",
+  "description": "Vamos a conectar nuetra app a base de datos",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Belen PC escritorio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "ESTA ES LA CLASE 19 - VAMOS A VER EL MODULO HTTP.-"
+  }
+}
