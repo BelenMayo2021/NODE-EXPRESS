@@ -6,7 +6,7 @@ const mysqlConfig = {
     host: 'localhost',
     user: 'root',
     password: 'Gralpaz2077',
-    database: 'utn',
+    database: 'sucursal',
 };
 
 module.exports = mysqlConfig;

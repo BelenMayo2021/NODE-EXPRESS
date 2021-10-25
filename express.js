@@ -17,7 +17,7 @@ const gente = [
     'Vane',
 ];
 
-//clase 20
+//----->CLASE 20
 
 const connection = mysql.createConnection(mysqlConfig);
 
@@ -29,6 +29,20 @@ connection.connect((error) => {
     }
     console.log('conectado a la base de datos')
 });
+
+
+app.get('/empleados', (req,res) => {
+    connection.query('SELECT*FROM empleados', (error,resultado)=> {
+        if (error){
+            console.error(error);
+            return;
+        }
+        res.json(resultado);
+    });
+});
+
+
+
 
 
 // "GET" ESTO ES PARA ESCUCHAR LAS PETICIONES QUE SE PONEN EN EL NAVEGADOR (GET se utiliza para OBTENER peticiones del navegador)
