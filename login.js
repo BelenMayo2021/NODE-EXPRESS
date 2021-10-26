@@ -33,16 +33,44 @@ app.post('/api/users', (req, res) => {
 
     connection.query(`
         INSERT INTO \`usuarios\` (\`email\`,\`pasword\`,\`nombre\`,\`edad\`)
-        VALUES('${body.email}', '${body.pasword}', '${body.nombre}', '${body.edad}');`,
+        VALUES ('${body.email}', '${body.pasword}', '${body.nombre}', '${body.edad}');
+        `,
             (error, result) => {
                 if(error){
                     console.error(error);
                     return res.json({message:'No pudimos crear un usuario'});
                 }
-                return res.json({message: 'El usuario a sido creado con exito'});
+                return res.json({message: 'El usuario a sido creado con exito'})
             }
     );
 });
+
+
+// ENDPOINT para loguearce, devuelve un usuario
+app.post('/api/login', (req, res) => {
+    const body = req.body;
+    console.log(body);
+    connection.query(
+        `SELECT id, email, nombre, edad, foto_perfil FROM usuarios 
+        WHERE email = '${body.email}' AND pasword = '${body.pasword}'`,
+    (error, result) => {
+        if (error) {
+            console.error(error);
+            return res.json({ message: 'Error inesperado, nuestros mejores ingenieros estan trabajando en la solución' });
+        }
+        
+        if (result.length > 0) {
+            return res.json({ message: 'Usario logueado exitosamente', data: result[0]});
+        } else {
+            return res.json({ message: 'Usuario o contraseña incorrecta'});
+        }
+    }
+    );
+});
+
+
+
+
 
 
 app.listen(5000, () =>{
